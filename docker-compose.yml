@@ -1,0 +1,30 @@
+version: '3'
+
+# set database password in .env
+# please don't use quote (') or (") symbols in variables
+
+services:
+  icecast:
+    image: jqtype/icecast
+    container_name: icecast
+    restart: unless-stopped
+    volumes:
+      - log:/var/log/icecast
+    env_file: .env
+        #    expose:
+        #      - "8000"
+    ports:
+      - 8000:8000
+    networks:
+      proxy_front:
+
+volumes:
+  log:
+    driver_opts:
+      type: none
+      device: $PWD/log
+      o: bind
+
+networks:
+  proxy_front:
+    external: true
