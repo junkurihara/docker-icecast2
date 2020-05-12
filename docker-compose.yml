@@ -11,10 +11,14 @@ services:
     volumes:
       - log:/var/log/icecast
     env_file: .env
-        #    expose:
-        #      - "8000"
+    environment:
+      - LETSENCRYPT_HOST=${ENV_LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${ENV_LETSENCRYPT_EMAIL}
+      - LETSENCRYPT_TEST=${ENV_LETSENCRYPT_TEST}
+    expose:
+      - "80"
     ports:
-      - 8000:8000
+      - 58080:8080
     networks:
       proxy_front:
 

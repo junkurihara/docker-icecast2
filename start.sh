@@ -68,15 +68,13 @@ cat > /etc/icecast.xml << EOF
 
     <!-- You may have multiple <listen-socket> elements -->
     <listen-socket>
-        <port>8000</port>
+        <port>${ICECAST_LISTEN_SOCKET_PORT}</port>
         <!-- <bind-address>127.0.0.1</bind-address> -->
         <!-- <shoutcast-mount>/stream</shoutcast-mount> -->
     </listen-socket>
-    <!--
     <listen-socket>
-        <port>8080</port>
+        <port>${ICECAST_LISTEN_SOCKET_PORT_SOURCE}</port>
     </listen-socket>
-    -->
     <!--
     <listen-socket>
         <port>8443</port>

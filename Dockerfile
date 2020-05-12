@@ -4,7 +4,8 @@ MAINTAINER Jun Kurihara <junkurihara@users.noreply.github.com>
 
 RUN apk add --no-cache icecast
 
-EXPOSE 8000
+EXPOSE 80
+EXPOSE 8080
 
 COPY /start.sh /bin/start.sh
 RUN chmod 755 /bin/start.sh
